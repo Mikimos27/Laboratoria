@@ -14,7 +14,9 @@ begin
         d := b * b - 4.0 * a * c;
         if d < 0.0 then
             Put_Line("x nie istnieje dla liczb rzeczywistych");
-        elsif d = 0.0 then
+            return;
+        end if;
+        if d = 0.0 then
             x1 := -b / 2.0 / a;
             Put_Line("x = " & x1'Image);
         else

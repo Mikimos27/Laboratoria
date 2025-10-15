@@ -10,14 +10,14 @@ def main():
         print("Liczby nie moga byc mniejsze od 0")
         return
     if a == 0 or b == 0:
-        printf(f"NWD({a}, {b}) = 0")
+        print(f"NWD({a}, {b}) = {a + b}")
         return
 
+    if a < b:
+        a, b = b, a
     while b != 0:
-        if a < b:
-            a, b = b, a
-        else:
-            a = a % b
+        a = a % b
+        a, b = b, a
 
     print(f"NWD({pa}, {pb}) = {a}")
 

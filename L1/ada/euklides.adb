@@ -15,18 +15,21 @@ begin
         return;
     end if;
     if a = 0 or b = 0 then
-        Put_Line("NWD = 0");
+        c := a + b;
+        Put_Line("NWD =" & c'Image);
         return;
     end if;
 
+    if a < b then
+        c := a;
+        a := b;
+        b := c;
+    end if;
     while b /= 0 loop
-        if a < b then
-            c := a;
-            a := b;
-            b := c;
-        else
-            a := a mod b;
-        end if;
+        a := a mod b;
+        c := a;
+        a := b;
+        b := c;
     end loop;
 
     Put_Line("NWD =" & a'Image);

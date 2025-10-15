@@ -34,11 +34,12 @@ begin
         n := n / base;
         pal := pal * base + res;
     end loop;
+    Put(pn'Image);
     
     if pn = pal then
-        Put_Line(pn'Image & " jest palindromem");
+        Put_Line(" jest palindromem");
     else
-        Put_Line(pn'Image & " nie jest palindromem");
+        Put_Line(" nie jest palindromem");
     end if;
     
 end palindrom;
