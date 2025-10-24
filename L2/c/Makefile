@@ -1,4 +1,4 @@
-BIN=kwadrat euklides palindrom
+BIN=euklides prime
 CC=gcc
 CFLAGS=-g -Wall -Werror -pedantic -fsanitize=bounds -fsanitize=address -O2 -std=c23
 
