@@ -4,6 +4,19 @@ with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 
 procedure euklides is
     a, b, c : Integer;
+    function NWD(x: Integer; y: Integer) return Integer is
+        a, b, c: Integer;
+    begin
+        a := x;
+        b := y;
+        while b /= 0 loop
+            a := a mod b;
+            c := a;
+            a := b;
+            b := c;
+        end loop;
+        return a;
+    end NWD;
 begin
     Put("Podaj pierwszą liczbę: ");
     Get(a);
@@ -20,17 +33,8 @@ begin
         return;
     end if;
 
-    if a < b then
-        c := a;
-        a := b;
-        b := c;
-    end if;
-    while b /= 0 loop
-        a := a mod b;
-        c := a;
-        a := b;
-        b := c;
-    end loop;
+
+    a := NWD(a, b);
 
     Put_Line("NWD =" & a'Image);
 end euklides;
