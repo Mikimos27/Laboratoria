@@ -1,4 +1,4 @@
-BIN=euklides prime
+BIN=euklides prime factors
 CC=gcc
 CFLAGS=-g -Wall -Werror -pedantic -fsanitize=bounds -fsanitize=address -O2 -std=c23
 
