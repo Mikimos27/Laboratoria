@@ -26,8 +26,7 @@ int prime(uint32_t n){
     if(n <= 1) return 0;
     if(n == 2) return 1;
     if(n % 2 == 0) return 0;
-    uint32_t sq = (uint32_t)sqrt(n) + 1;
-    for(uint32_t i = 3; i < sq; i += 2){
+    for(uint32_t i = 3; i * i <= n; i += 2){
         if(n % i == 0) return 0;
     }
     return 1;
