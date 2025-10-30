@@ -8,14 +8,15 @@ int prime(uint32_t);
 
 
 int main(){
-    return test();
+    uint32_t n = 17;
+    return test() + printf("\n%u %sjest liczbą pierwszą\n", n, prime(n) ? "" : "nie ");
 }
 
 
 int test(){
-    uint32_t to_check[] = {0,2,24,17,3,1023,1204,1203};
-    for(int i = 0; i < sizeof(to_check) / sizeof(to_check[0]); i++){
-        printf("%d is%s prime\n", to_check[i], prime(to_check[i]) ? "" : " not");
+    //uint32_t to_check[] = {0,2,24,17,3,1023,1204,1203};
+    for(int i = 0; i < 300; i++){//sizeof(to_check) / sizeof(to_check[0]); i++){
+        printf("%d %sjest liczbą pierwszą\n", i, prime(i) ? "" : "nie ");
     }
     return 0;
 }
