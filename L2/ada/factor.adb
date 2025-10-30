@@ -3,7 +3,7 @@ with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 
 
 procedure factor is
-    n, it : Integer;
+    n, it, len, count, org : Integer;
     function p(n: Integer) return Integer is
         i: Integer := 3;
     begin
@@ -25,8 +25,11 @@ procedure factor is
     return 1;
     end p;
 begin
+    count := 0;
 
     Get(n);
+    org := n;
+    len := n / 2 + 1;
     if n = 1 then
         Put(1);
     end if;
@@ -36,21 +39,37 @@ begin
     end if;
 
     while n mod 2 = 0 loop
-        Put(2);
+        count := count + 1;
         n := n / 2;
     end loop;
+    if count = 1 then
+        Put("2, ");
+    else 
+        if count > 1 then
+            Put("2^" & count'Image);
+        end if;
+    end if;
+
 
     it := 3;
-    while it * it <= n + 1 loop
+    while it <= len loop
+        count := 0;
         while n mod it = 0 loop
-            Put(it);
+            count := count + 1;
             n := n / it;
         end loop;
+        if count = 1 then
+            Put(it);
+        else 
+            if count > 1 then
+                Put(it'Image & "^" & count'Image);
+            end if;
+        end if;
         it := it + 2;
     end loop;
 
     if n > 1 then
-        Put(n);
+        Put(org);
     end if;
 
     Put_Line("");

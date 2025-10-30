@@ -2,6 +2,7 @@
 
 def main(num):
     org = num
+    len = num // 2 + 1
     if num == 0:
         return 1
     if num == 1:
@@ -9,22 +10,30 @@ def main(num):
         return 0
     if prime(num):
         print(num)
-        return 0;
+        return 0
 
-    l: list = []
 
+    count = 0
     while num % 2 == 0:
-        l.append(2)
+        count += 1
         num = num // 2
+    if count == 1:
+        print("2,", end = " ")
+    if count > 1:
+        print(f"2^{count},", end = " ")
     i = 3
-    while i * i <= num + 1:
+    while i <= len:
+        count = 0
         while num % i == 0:
-            l.append(i)
+            count += 1
             num = num // i
+        if count == 1:
+            print(f"{i},", end = " ")
+        if count > 1:
+            print(f"{i}^{count},", end = " ")
         i = i + 2
     if num > 1:
-        l.append(num)
-    print(f"{org} = {l}")
+        print(org)
     return 0
 
 
@@ -50,5 +59,6 @@ def prime(p):
     return True
 
 if __name__ == "__main__":
-    for i in range(0, 200):
+    for i in [105, 192, 1]:
         main(i)
+        print("")
