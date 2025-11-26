@@ -19,7 +19,7 @@ int main(int argc, char** argv){
         printf("liczby ujemne nie działają\n");
         return 1;
     }
-    n = inter;
+    n = inter + 1;
     s = malloc((n + 1) * sizeof(bool));
     if(!s){
         printf("malloc fail\n");
