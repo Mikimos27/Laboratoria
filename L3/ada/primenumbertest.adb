@@ -15,6 +15,10 @@ begin
         return;
     end if;
     n := Natural'Value(Argument(1));
+    if n < 2 then
+        Put_Line("0");
+        return;
+    end if;
     s := new Sieve(2 .. n);
     ComputeSieve(s);
     c := CountPrimes(s);

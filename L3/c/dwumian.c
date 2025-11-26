@@ -30,8 +30,18 @@ uint32_t dwumian(uint32_t n, uint32_t k){
 int main(int argc, char** argv){
     if(argc < 3) return 1;
     uint32_t n = 0, k = 0;
-    sscanf(argv[1], "%u", &n);
-    sscanf(argv[2], "%u", &k);
+    if(sscanf(argv[1], "%u", &n) != 1){
+        printf("sscanf fail\n");
+        return 1;
+    }
+    if(sscanf(argv[2], "%u", &k) != 1){
+        printf("sscanf fail\n");
+        return 1;
+    }
+    if(n < k){
+        printf("n musi być niemniejsze od k\n");
+        return 1;
+    }
     printf("d(%u, %u) = %u\n", n , k, dwumian(n, k));
     return 0;
 }
