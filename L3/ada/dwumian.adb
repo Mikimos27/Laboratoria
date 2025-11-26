@@ -4,14 +4,14 @@ with Ada.Command_Line; use Ada.Command_Line;
 with Ada.Unchecked_Deallocation;
 
 procedure dwumian is
-    function calc(on: Integer; ok: Integer) return Integer is
-        type Arr is array(Positive range <>) of Integer;
+    function calc(on: Natural; ok: Natural) return Natural is
+        type Arr is array(Natural range <>) of Natural;
         type Arr_Ptr is access Arr;
         procedure Free is
         new Standard.Ada.Unchecked_Deallocation(Arr, Arr_Ptr);
 
         C: Arr_Ptr;
-        temp: Integer;
+        temp: Natural;
         n: Natural;
         k: Natural;
         ret: Natural;
@@ -23,7 +23,7 @@ procedure dwumian is
         end if;
         C := new Arr(0..(k+1));  
         C(0) := 1;
-        for i in 0 .. n loop
+        for i in 1 .. n loop
             if i <= k then
                 C(i) := 1;
             end if;
@@ -33,7 +33,6 @@ procedure dwumian is
             end if;
             for j in reverse 1..temp loop
                 C(j) := C(j) + C(j - 1);
-                Put(C(j));
             end loop;
         end loop;
         ret := C(k);
