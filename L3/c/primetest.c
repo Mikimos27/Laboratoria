@@ -19,14 +19,14 @@ int main(int argc, char** argv){
         printf("liczby ujemne nie działają\n");
         return 1;
     }
-    n = inter + 1;
+    n = inter;
     s = malloc((n + 1) * sizeof(bool));
     if(!s){
         printf("malloc fail\n");
         return 1;
     }
     compute_sieve(s, n);
-    for(unsigned long i = 0; i < n; i++){
+    for(unsigned long i = 0; i <= n; i++){
         c = count_primes(s, i);
         printf("%lu\n", c);
     }
