@@ -40,6 +40,12 @@ uint32_t nta(uint32_t n){
 }
 
 int main(int argc, char** argv){
-    nta(100);
+    if(argc < 2) return 1;
+    uint32_t n = 0;
+    if(sscanf(argv[1], "%u", &n) != 1){
+        printf("sscanf fail\n");
+        return 1;
+    }
+    printf("n(%u) = %u\n", n , nta(n));
     return 0;
 }
