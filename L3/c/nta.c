@@ -46,6 +46,10 @@ int main(int argc, char** argv){
         printf("sscanf fail\n");
         return 1;
     }
+    if((int32_t)n < 0){
+        printf("liczby ujemne nie działają\n");
+        return 1;
+    }
     printf("n(%u) = %u\n", n , nta(n));
     return 0;
 }

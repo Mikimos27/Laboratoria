@@ -15,9 +15,9 @@ int main(int argc, char** argv){
         return 1;
     }
 
-    if(inter < 0){
-        printf("liczby ujemne nie działają\n");
-        return 1;
+    if(inter < 2){
+        printf("0\n");
+        return 0;
     }
     n = inter;
     s = malloc((n + 1) * sizeof(bool));
@@ -26,10 +26,8 @@ int main(int argc, char** argv){
         return 1;
     }
     compute_sieve(s, n);
-    for(unsigned long i = 0; i <= n; i++){
-        c = count_primes(s, i);
-        printf("%lu\n", c);
-    }
+    c = count_primes(s, n);
+    printf("%lu\n", c);
     free(s);
 
     return 0;

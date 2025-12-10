@@ -2,46 +2,47 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-uint32_t min32(uint32_t a, uint32_t b){
+uint64_t min64(uint64_t a, uint64_t b){
     return a < b ? a : b;
 }
 
-uint32_t dwumian(uint32_t n, uint32_t k){
-    k = min32(k, n - k);
-    uint32_t* C = malloc(sizeof(uint32_t) * (k + 1));
+uint64_t dwumian(uint64_t n, uint64_t k){
+    k = min64(k, n - k);
+    uint64_t* C = calloc((k + 1), sizeof(uint64_t));
 
     C[0] = 1;
-    for(uint32_t i = 0; i <= n; i++){
+    for(uint64_t i = 0; i <= n; i++){
         if(i <= k) C[i] = 1;
-        for(uint32_t j = min32(k, i - 1); j > 0; j--){
+        for(uint64_t j = min64(k, i - 1); j > 0; j--){
             C[j] = C[j] + C[j - 1];
-            printf("%u ", C[j]);
-        }
-        for(int i = 0; i <= k; i++){
-
+            printf("%lu ", C[j]);
         }
         printf("\n");
     }
-    uint32_t ret = C[k];
+    uint64_t ret = C[k];
     free(C);
     return ret;
 }
 
 int main(int argc, char** argv){
     if(argc < 3) return 1;
-    uint32_t n = 0, k = 0;
-    if(sscanf(argv[1], "%u", &n) != 1){
+    uint64_t n = 0, k = 0;
+    if(sscanf(argv[1], "%lu", &n) != 1){
         printf("sscanf fail\n");
         return 1;
     }
-    if(sscanf(argv[2], "%u", &k) != 1){
+    if(sscanf(argv[2], "%lu", &k) != 1){
         printf("sscanf fail\n");
+        return 1;
+    }
+    if((int32_t)n < 0 || (int32_t)k < 0){
+        printf("liczby ujemne nie działają\n");
         return 1;
     }
     if(n < k){
         printf("n musi być niemniejsze od k\n");
         return 1;
     }
-    printf("d(%u, %u) = %u\n", n , k, dwumian(n, k));
+    printf("d(%lu, %lu) = %lu\n", n , k, dwumian(n, k));
     return 0;
 }
