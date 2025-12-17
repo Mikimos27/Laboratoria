@@ -46,15 +46,14 @@ uint32_t* factors(unsigned num, uint32_t* len){
 }
 
 unsigned totient(unsigned n){
+    if(n < 2) return 1;
     uint32_t len1;
     uint32_t* arr = factors(n, &len1);
     if(arr == NULL) return n - 1;
-    printf("%u\n", len1);
 
     uint32_t res = n;
     for(int i = 1; i < len1 - 2; i++){
         if(arr[i - 1] == 0) continue;
-        printf("%u\n", res);
         res = res - res / i;
     }
     free(arr);
