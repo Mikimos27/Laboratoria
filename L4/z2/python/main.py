@@ -8,7 +8,7 @@ def main():
     
     for i in sys.argv[1:]:
         n = int(i)
-        print(tt.totient(n))
+        print(f"totient({n}) = {tt.totient(n)}")
 
 
 if __name__ == "__main__":

@@ -36,7 +36,6 @@ def totient(n):
         return 1
     if is_prime(n):
         return n - 1
-    print(factor(n));
     s = factor(n)
     res = n
     for i in s:
