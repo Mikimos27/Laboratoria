@@ -44,9 +44,3 @@ def totient(n):
 
     return res
 
-print(totient(1))
-print(totient(11))
-print(totient(100))
-print(totient(5000))
-print(totient(12345678))
-print(totient(1023813))
