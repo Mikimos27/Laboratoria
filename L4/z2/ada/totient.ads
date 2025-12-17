@@ -1,3 +1,3 @@
 package Totient is
-   function totient(N : Integer) return Integer;
+    function totient(N : Positive) return Positive;
 end Totient;

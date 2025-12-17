@@ -4,7 +4,7 @@ with Ada.Strings.Fixed;
 with Totient;
 
 procedure Main is
-   Argc : Integer := Ada.Command_Line.Argument_Count + 1;
+   Argc : Positive := Ada.Command_Line.Argument_Count + 1;
 begin
    if Argc < 2 then
       New_Line;
@@ -16,9 +16,9 @@ begin
    for I in 1 .. Ada.Command_Line.Argument_Count loop
       declare
          Arg : String := Ada.Command_Line.Argument (I);
-         Val : Integer := Integer'Value (Arg);
-         Result : Integer := Totient.Totient (Val);
-         Result_Str : String := Integer'Image (Result);
+         Val : Positive := Positive'Value (Arg);
+         Result : Positive := Totient.Totient (Val);
+         Result_Str : String := Positive'Image (Result);
       begin
          Put ("totient(" & Arg & ") = " & Ada.Strings.Fixed.Trim(Result_Str, Ada.Strings.Left) & ";");
          New_Line;
