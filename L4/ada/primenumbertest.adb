@@ -5,7 +5,7 @@ with Primes; use Primes;
 procedure PrimeNumberTest is
     n: Positive;
     w: Positive;
-    s: String(1..2) := "";
+    s: String(1..2) := "  ";
 begin
     if Argument_Count /= 2 then
         Put_Line("Zła liczba argumentów");

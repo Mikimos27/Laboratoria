@@ -22,7 +22,7 @@ int sqrt_compute_sieve(bool s[], unsigned n){
 
     unsigned i, j;
     for (i = 2; i <= n; i++) s[i] = true;
-    for (i = 2; i <= sqrt(n); i++)
+    for (i = 2; i * i <= n; i++)
         if (s[i])
             for (j = i + i; j <= n; j += i)
                 s[j] = false;
