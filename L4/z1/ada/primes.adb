@@ -23,7 +23,7 @@ package body Primes is
     begin
         s.all := (others => True);
         for i in s'Range loop
-            if i * i >= s'Last then return; end if;
+            if i * i > s'Last then return; end if;
             if s(i) then
                 j := i + i;
                 while j <= s'Last loop
