@@ -49,7 +49,7 @@ begin
             Get (r);
             Skip_Line;
             Delete (l, r);
-            Put_Line ("Result: " & r'Image);
+            Put_Line ("Result: OK");
         elsif command = "Insert" then
             Put ("Value: ");
             Get (r);
@@ -58,7 +58,7 @@ begin
             Get (e);
             Skip_Line;
             Insert (l, r, e);
-            Put_Line ("Result: " & r'Image);
+            Put_Line ("Result: OK");
         elsif command = "Put" then
             Put ("Value: ");
             Get (r);
@@ -67,13 +67,16 @@ begin
             Get (e);
             Skip_Line;
             Put (l, r, e);
-            Put_Line ("Result: " & r'Image);
+            Put_Line ("Result: OK");
         elsif command = "Print" then
             Put ("Result: ");
             Print (l);
         elsif command = "Length" then
             r := Length (l);
             Put_Line ("Result: " & r'Image);
+        elsif command = "Clean" then
+            Clean (l);
+            Put_Line ("Result: OK");
         elsif command = "Exit" then
             continue := False;
         else

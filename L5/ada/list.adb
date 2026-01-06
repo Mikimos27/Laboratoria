@@ -46,7 +46,7 @@ package body list is
 
     function Get (l : ListT; i : Integer) return Integer is
         n : NodePtr := l.first;
-        it : Integer := 0;
+        it : Integer := 1;
     begin
         while it < i loop
             n := n.next;
@@ -58,7 +58,7 @@ package body list is
     procedure Delete (l : in out ListT; i : Integer) is
         n : NodePtr := l.first;
         del : NodePtr := l.first;
-        it : Integer := 0;
+        it : Integer := 1;
     begin
         if i = 1 then
             it := Pop(l);
@@ -77,7 +77,7 @@ package body list is
 
     procedure Put (l : in out ListT; i : Integer; e : Integer) is
         n : NodePtr := l.first;
-        it : Integer := 0;
+        it : Integer := 1;
     begin
         while it < i loop
             n := n.next;
@@ -88,7 +88,7 @@ package body list is
     procedure Insert (l : in out ListT; i : Integer; e : Integer) is
         n : NodePtr := l.first;
         ins : NodePtr := new Node;
-        it : Integer := 0;
+        it : Integer := 1;
     begin
         if i = 1 then
             Push(l, e);
