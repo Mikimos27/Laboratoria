@@ -50,6 +50,24 @@ begin
             Skip_Line;
             Delete (l, r);
             Put_Line ("Result: " & r'Image);
+        elsif command = "Insert" then
+            Put ("Value: ");
+            Get (r);
+            Skip_Line;
+            Put ("Value: ");
+            Get (e);
+            Skip_Line;
+            Insert (l, r, e);
+            Put_Line ("Result: " & r'Image);
+        elsif command = "Put" then
+            Put ("Value: ");
+            Get (r);
+            Skip_Line;
+            Put ("Value: ");
+            Get (e);
+            Skip_Line;
+            Put (l, r, e);
+            Put_Line ("Result: " & r'Image);
         elsif command = "Print" then
             Put ("Result: ");
             Print (l);
