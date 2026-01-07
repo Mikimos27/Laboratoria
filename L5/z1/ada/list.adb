@@ -68,6 +68,13 @@ package body list is
             del := del.next;
             it := it + 1;
         end loop;
+        if i = Length(l) then
+            Free(l.last);
+            del.next := NULL;
+            l.last := del;
+            l.length := l.length - 1;
+            return;
+        end if;
         n := del.next;
         del.next := n.next;
         free(n);

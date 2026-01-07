@@ -57,10 +57,6 @@ int length(list l) {
 
 int get(list l, int i) {
     i--;
-    if(l->length <= i || i < 0){
-        printf("out of bounds 'get' %d\n", i + 1);
-        return 0;
-    }
     node_ptr tmp = l->first;
     for(int j = 0; j < i; j++){
         tmp = tmp->next;
@@ -69,10 +65,6 @@ int get(list l, int i) {
 }
 void put(list l, int i, int e){
     i--;
-    if(l->length <= i || i < 0){
-        printf("out of bounds 'put' %d\n", i + 1);
-        return;
-    }
     node_ptr tmp = l->first;
     for(int j = 0; j < i; j++){
         tmp = tmp->next;
@@ -89,10 +81,6 @@ void insert(list l, int i, int e){
         return;
     }
     i--;
-    if(l->length + 1 <= i || i < 0){
-        printf("out of bounds 'put' %d\n", i + 1);
-        return;
-    }
     node_ptr tmp = l->first;
     for(int j = 0; j < i - 1; j++){
         tmp = tmp->next;
@@ -109,13 +97,16 @@ void delete(list l, int i){
         return;
     }
     i--;
-    if(l->length <= i || i < 0){
-        printf("out of bounds 'put' %d\n", i + 1);
-        return;
-    }
     node_ptr to_delete = l->first;
     for(int j = 0; j < i - 1; j++){
         to_delete = to_delete->next;
+    }
+    if(i == length(l) - 1){
+        free(l->last);
+        to_delete->next = NULL;
+        l->last = to_delete;
+        l->length--;
+        return;
     }
     node_ptr tmp = to_delete->next;
     to_delete->next = tmp->next;

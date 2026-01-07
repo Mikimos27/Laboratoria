@@ -12,10 +12,6 @@ procedure listTest is
     command : Unbounded_String;
     continue : Boolean := True;
 begin
---    Get(l, r);
- --   Delete(l, r);
-  --  Put(l, r, e);
-   -- Insert(l, r, e);
     while continue loop
         Put ("Command: ");
         Get_Line (command);
@@ -42,32 +38,48 @@ begin
             Put ("Value: ");
             Get (r);
             Skip_Line;
-            r := Get (l, r);
-            Put_Line ("Result: " & r'Image);
+            if r < 1 or r > Length(l) then
+                Put_Line("Out of bounds");
+            else
+                r := Get (l, r);
+                Put_Line ("Result: " & r'Image);
+            end if;
         elsif command = "Delete" then
             Put ("Value: ");
             Get (r);
             Skip_Line;
-            Delete (l, r);
-            Put_Line ("Result: OK");
+            if r < 1 or r > Length(l) then
+                Put_Line("Out of bounds");
+            else
+                Delete (l, r);
+                Put_Line ("Result: OK");
+            end if;
         elsif command = "Insert" then
             Put ("Value: ");
             Get (r);
             Skip_Line;
-            Put ("Value: ");
-            Get (e);
-            Skip_Line;
-            Insert (l, r, e);
-            Put_Line ("Result: OK");
+            if r < 1 or r > Length(l) + 1 then
+                Put_Line("Out of bounds");
+            else
+                Put ("Value: ");
+                Get (e);
+                Skip_Line;
+                Insert (l, r, e);
+                Put_Line ("Result: OK");
+            end if;
         elsif command = "Put" then
             Put ("Value: ");
             Get (r);
             Skip_Line;
-            Put ("Value: ");
-            Get (e);
-            Skip_Line;
-            Put (l, r, e);
-            Put_Line ("Result: OK");
+            if r < 1 or r > Length(l) then
+                Put_Line("Out of bounds");
+            else
+                Put ("Value: ");
+                Get (e);
+                Skip_Line;
+                Put (l, r, e);
+                Put_Line ("Result: OK");
+            end if;
         elsif command = "Print" then
             Put ("Result: ");
             Print (l);

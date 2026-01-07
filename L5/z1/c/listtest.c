@@ -38,12 +38,20 @@ int main() {
         else if (!strcmp(command, "get")) {
             printf("Value: ");
             scanf("%d", &r);
+            if(!(r >= 1 && r <= length(l))){
+                perror("Out of bound error\n");
+                continue;
+            }
 
             printf("Result: %d\n", get(l, r));
         }
         else if (!strcmp(command, "put")) {
             printf("Value: ");
             scanf("%d", &r);
+            if(!(r >= 1 && r <= length(l))){
+                perror("Out of bound error\n");
+                continue;
+            }
             printf("Elem: ");
             scanf("%d", &e);
             put(l, r, e);
@@ -52,6 +60,10 @@ int main() {
         else if (!strcmp(command, "insert")) {
             printf("Value: ");
             scanf("%d", &r);
+            if(!(r >= 1 && r <= length(l) + 1)){
+                perror("Out of bound error\n");
+                continue;
+            }
             printf("Elem: ");
             scanf("%d", &e);
             insert(l, r, e);
@@ -60,6 +72,10 @@ int main() {
         else if (!strcmp(command, "delete")) {
             printf("Value: ");
             scanf("%d", &r);
+            if(!(r >= 1 && r <= length(l))){
+                perror("Out of bound error\n");
+                continue;
+            }
             delete(l, r);
             printf("Result: OK\n");
         }
